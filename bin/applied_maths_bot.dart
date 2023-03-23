@@ -20,6 +20,7 @@ Future<void> main() async {
   final news = KeyboardButton(text: 'Новини');
   final fAQ = KeyboardButton(text: 'FAQ');
 
+
   List<List<KeyboardButton>> keyboardMenu = [
     [info113],
     [socialMedia],
@@ -68,10 +69,9 @@ Future<void> main() async {
 
   //------------------------------
   teledart
-      .onMessage(keyword: news.text)
-      .where((message) => message.text?.contains(news.text) ?? false)
-      .listen((message) => message.reply('News:'));
-
+      .onMessage(keyword: fAQ.text)
+      .where((message) => message.text?.contains(fAQ.text) ?? false)
+      .listen((message) => message.reply('Самые частые вопросы:'));
 
 
   //------------------------------
