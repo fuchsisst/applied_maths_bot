@@ -1,1 +1,1 @@
-worker: dart bin/applied_maths_bot.dart
+web: ./dart-sdk/bin/dart applied_maths_bot.dart
