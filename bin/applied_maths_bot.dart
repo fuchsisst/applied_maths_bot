@@ -65,4 +65,15 @@ Future<void> main() async {
       .where((message) => message.text?.contains(socialMedia.text) ?? false)
       .listen((message) =>
           message.reply('Social Media:', replyMarkup: markupSocialMedia));
+
+  //------------------------------
+  teledart
+      .onMessage(keyword: news.text)
+      .where((message) => message.text?.contains(news.text) ?? false)
+      .listen((message) => message.reply('News:'));
+
+
+
+  //------------------------------
+
 }
