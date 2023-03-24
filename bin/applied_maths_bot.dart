@@ -10,12 +10,33 @@ Future<void> main() async {
   var BOT_TOKEN = '5839246590:AAGamMdzCPzjFn0xgKCl0nmk7juW8oAG4eI';
   // init Telegram
   final username = (await Telegram(BOT_TOKEN).getMe()).username;
-
+  final WEBAPP_HOST = '0.0.0.0';
+  final WEBAPP_PORT = int.parse(Platform.environment['PORT'] ?? '8000');
   // Add this line of code to bind to $PORT
  // final port = int.parse(Platform.environment['PORT'] ?? '8000');
-  final teleDart = TeleDart(BOT_TOKEN, Event(username!));
+ // final teleDart = TeleDart(BOT_TOKEN, Event(username!));
+ //teleDart.start();
+ // teleDart.setWebhook('https://dashboard.heroku.com/apps/appliedmathsbotdart0/$BOT_TOKEN',dropPendingUpdates: true );
+
+
+ // void startWebhook() async{
+ //   await teleDart.setWebhook('https://dashboard.heroku.com/apps/appliedmathsbotdart0/$BOT_TOKEN',dropPendingUpdates: true );
+ //  }
+ //
+ //  void deleteWebhook() async {
+ //   await teleDart.deleteWebhook();
+ //  }
+
+
+  var webhook = await Webhook.createHttpWebhok(
+      Telegram(BOT_TOKEN),
+    'https://appliedmathsbotdart0.herokuapp.com/webhook/{TOKEN}',
+      serverPort: WEBAPP_PORT,
+      dropPendingUpdates: true);
+
+  var teleDart = TeleDart(BOT_TOKEN, Event(username!), fetcher: webhook);
   teleDart.start();
-  teleDart.setWebhook('https://dashboard.heroku.com/apps/appliedmathsbotdart0/$BOT_TOKEN');
+
 
   //KeyBoardButton for main menu
   final info113 = KeyboardButton(text: 'Інфо');
