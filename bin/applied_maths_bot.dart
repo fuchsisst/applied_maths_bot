@@ -3,7 +3,8 @@ import 'dart:io';
 
 import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/constants.dart';
-import 'package:teledart/model.dart';
+import 'package:applied_maths_bot/keyboards/inline_social_media_keyboard.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
@@ -25,41 +26,6 @@ Future<void> main() async {
 
   var teleDart = TeleDart(botToken, Event(username!), fetcher: webhook);
   teleDart.start();
-
-  //KeyBoardButton for main menu
-  final info113 = KeyboardButton(text: 'Інфо');
-  final socialMedia = KeyboardButton(text: 'Соцмережі');
-  final news = KeyboardButton(text: 'Новини');
-  final fAQ = KeyboardButton(text: 'FAQ');
-
-  List<List<KeyboardButton>> keyboardMenu = [
-    [info113],
-    [socialMedia],
-    [news],
-    [fAQ]
-  ];
-
-  final markupMenu =
-      ReplyKeyboardMarkup(resizeKeyboard: true, keyboard: keyboardMenu);
-
-  //
-  final instagram = InlineKeyboardButton(
-      text: 'Instagram',
-      url:
-          'https://www.instagram.com/appliedmathematics_onpu/?igshid=YmMyMTA2M2Y%3D');
-  final facebook = InlineKeyboardButton(
-      text: 'Facebook', url: 'https://m.facebook.com/AppliedMathematicsONPU/');
-  final telegramChannel = InlineKeyboardButton(
-      text: 'Telegram Channel', url: 'https://t.me/applyed_math');
-
-  List<List<InlineKeyboardButton>> keyboardSocialMedia = [
-    [instagram],
-    [facebook],
-    [telegramChannel]
-  ];
-
-  final markupSocialMedia =
-      InlineKeyboardMarkup(inlineKeyboard: keyboardSocialMedia);
 
   teleDart.onCommand('start').listen((message) => message.reply(
         startMessage,
