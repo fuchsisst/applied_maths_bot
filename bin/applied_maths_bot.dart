@@ -2,41 +2,25 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:applied_maths_bot/command_text.dart';
+import 'package:applied_maths_bot/constants.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
 Future<void> main() async {
-  var BOT_TOKEN = '5839246590:AAGamMdzCPzjFn0xgKCl0nmk7juW8oAG4eI';
-  // init Telegram
-  final username = (await Telegram(BOT_TOKEN).getMe()).username;
-  final WEBAPP_HOST = '0.0.0.0';
-  final WEBAPP_PORT = int.parse(Platform.environment['PORT'] ?? '8000');
-  // Add this line of code to bind to $PORT
- // final port = int.parse(Platform.environment['PORT'] ?? '8000');
- // final teleDart = TeleDart(BOT_TOKEN, Event(username!));
- //teleDart.start();
- // teleDart.setWebhook('https://dashboard.heroku.com/apps/appliedmathsbotdart0/$BOT_TOKEN',dropPendingUpdates: true );
+  //Метод getMe() возращает основную информацию о боте в виде объекта User.
+  //Из объекта получаем свойство класса username, то есть имя пользователя.
+  final username = (await Telegram(botToken).getMe()).username;
 
+  //
+  final webappPort = int.parse(Platform.environment['PORT'] ?? '8000');
 
- // void startWebhook() async{
- //   await teleDart.setWebhook('https://dashboard.heroku.com/apps/appliedmathsbotdart0/$BOT_TOKEN',dropPendingUpdates: true );
- //  }
- //
- //  void deleteWebhook() async {
- //   await teleDart.deleteWebhook();
- //  }
+  var webhook = await Webhook.createHttpWebhok(Telegram(botToken),
+      'https://appliedmathsbotdart0.herokuapp.com/webhook/$botToken',
+      serverPort: webappPort, dropPendingUpdates: true);
 
-
-  var webhook = await Webhook.createHttpWebhok(
-      Telegram(BOT_TOKEN),
-    'https://appliedmathsbotdart0.herokuapp.com/webhook/{TOKEN}',
-      serverPort: WEBAPP_PORT,
-      dropPendingUpdates: true);
-
-  var teleDart = TeleDart(BOT_TOKEN, Event(username!), fetcher: webhook);
+  var teleDart = TeleDart(botToken, Event(username!), fetcher: webhook);
   teleDart.start();
-
 
   //KeyBoardButton for main menu
   final info113 = KeyboardButton(text: 'Інфо');
@@ -52,13 +36,13 @@ Future<void> main() async {
   ];
 
   final markupMenu =
-  ReplyKeyboardMarkup(resizeKeyboard: true, keyboard: keyboardMenu);
+      ReplyKeyboardMarkup(resizeKeyboard: true, keyboard: keyboardMenu);
 
   //
   final instagram = InlineKeyboardButton(
       text: 'Instagram',
       url:
-      'https://www.instagram.com/appliedmathematics_onpu/?igshid=YmMyMTA2M2Y%3D');
+          'https://www.instagram.com/appliedmathematics_onpu/?igshid=YmMyMTA2M2Y%3D');
   final facebook = InlineKeyboardButton(
       text: 'Facebook', url: 'https://m.facebook.com/AppliedMathematicsONPU/');
   final telegramChannel = InlineKeyboardButton(
@@ -71,21 +55,19 @@ Future<void> main() async {
   ];
 
   final markupSocialMedia =
-  InlineKeyboardMarkup(inlineKeyboard: keyboardSocialMedia);
+      InlineKeyboardMarkup(inlineKeyboard: keyboardSocialMedia);
 
   teleDart.onCommand('start').listen((message) => message.reply(
-    startMessage,
-    replyMarkup: markupMenu,
-    disableNotification: true,
-  ));
+        startMessage,
+        replyMarkup: markupMenu,
+        disableNotification: true,
+      ));
 
-  teleDart
-      .onCommand('info_113')
-      .listen((message) => message.reply(
-    info_113,
-    replyMarkup: markupMenu,
-    disableNotification: true,
-  ));
+  teleDart.onCommand('info_113').listen((message) => message.reply(
+        info_113,
+        replyMarkup: markupMenu,
+        disableNotification: true,
+      ));
 
   teleDart
       .onMessage(keyword: info113.text)
@@ -96,11 +78,8 @@ Future<void> main() async {
       .onMessage(keyword: socialMedia.text)
       .where((message) => message.text?.contains(socialMedia.text) ?? false)
       .listen((message) => message.reply(
-    'Social Media:',
-    replyMarkup: markupSocialMedia,
-    disableNotification: true,
-  ));
+            'Social Media:',
+            replyMarkup: markupSocialMedia,
+            disableNotification: true,
+          ));
 }
-
-//
-//
