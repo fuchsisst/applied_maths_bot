@@ -24,7 +24,7 @@ Future<void> main() async {
       serverPort: webappPort, dropPendingUpdates: true);
 
   var teleDart = TeleDart(botToken, Event(username!), fetcher: webhook);
-  //teleDart.start();
+  teleDart.start();
 
   //KeyBoardButton for main menu
   final info113 = KeyboardButton(text: 'Інфо');
