@@ -49,6 +49,28 @@ Future<void> main() async {
           ));
 
   teleDart
+      .onMessage(keyword: appliedMath_113.text)
+      .where((message) => message.text?.contains(appliedMath_113.text) ?? false)
+      .listen((message) => message.reply(
+    info_113,
+  ));
+
+  teleDart
+      .onMessage(keyword: systemAnalysis_124.text)
+      .where((message) => message.text?.contains(systemAnalysis_124.text) ?? false)
+      .listen((message) => message.reply(
+    inProcess
+  ));
+
+  teleDart
+      .onMessage(keyword: back.text)
+      .where((message) => message.text?.contains(back.text) ?? false)
+      .listen((message) => message.reply(
+    '',
+    replyMarkup: markupMenu,
+  ));
+
+  teleDart
       .onMessage(keyword: socialMedia.text)
       .where((message) => message.text?.contains(socialMedia.text) ?? false)
       .listen((message) => message.reply(
