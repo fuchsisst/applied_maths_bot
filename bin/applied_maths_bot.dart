@@ -43,7 +43,10 @@ Future<void> main() async {
   teleDart
       .onMessage(keyword: info.text)
       .where((message) => message.text?.contains(info.text) ?? false)
-      .listen((message) => message.replyMarkup);
+      .listen((message) => message.reply(
+            infoMessage,
+            replyMarkup: infoMarkup,
+          ));
 
   teleDart
       .onMessage(keyword: socialMedia.text)

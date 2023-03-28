@@ -11,5 +11,5 @@ List<List<KeyboardButton>> keyboardMenu = [
   [back],
 ];
 
-final infoKeyboard =
+final infoMarkup =
 ReplyKeyboardMarkup(resizeKeyboard: true, keyboard: keyboardMenu);
