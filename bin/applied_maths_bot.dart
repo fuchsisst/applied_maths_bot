@@ -52,23 +52,22 @@ Future<void> main() async {
       .onMessage(keyword: appliedMath_113.text)
       .where((message) => message.text?.contains(appliedMath_113.text) ?? false)
       .listen((message) => message.reply(
-    info_113,
-  ));
+            info_113,
+          ));
 
   teleDart
       .onMessage(keyword: systemAnalysis_124.text)
-      .where((message) => message.text?.contains(systemAnalysis_124.text) ?? false)
-      .listen((message) => message.reply(
-    inProcess
-  ));
+      .where(
+          (message) => message.text?.contains(systemAnalysis_124.text) ?? false)
+      .listen((message) => message.reply(inProcess));
 
   teleDart
       .onMessage(keyword: back.text)
       .where((message) => message.text?.contains(back.text) ?? false)
       .listen((message) => message.reply(
-    'Головне меню',
-    replyMarkup: markupMenu,
-  ));
+            'Головне меню',
+            replyMarkup: markupMenu,
+          ));
 
   teleDart
       .onMessage(keyword: socialMedia.text)
