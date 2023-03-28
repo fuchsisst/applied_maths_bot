@@ -65,8 +65,8 @@ Future<void> main() async {
   teleDart
       .onMessage(keyword: back.text)
       .where((message) => message.text?.contains(back.text) ?? false)
-      .listen((message) => message.reply(
-    '',
+      .listen((message) => message.reply('',
+    allowSendingWithoutReply: true,
     replyMarkup: markupMenu,
   ));
 
