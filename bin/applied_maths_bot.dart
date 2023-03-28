@@ -52,4 +52,14 @@ Future<void> main() async {
             replyMarkup: markupSocialMedia,
             disableNotification: true,
           ));
+
+  teleDart
+      .onMessage(keyword: news.text)
+      .where((message) => message.text?.contains(news.text) ?? false)
+      .listen((message) => message.reply(inProcess));
+
+  teleDart
+      .onMessage(keyword: fAQ.text)
+      .where((message) => message.text?.contains(fAQ.text) ?? false)
+      .listen((message) => message.reply(inProcess));
 }
