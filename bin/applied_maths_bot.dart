@@ -12,15 +12,19 @@ Future<void> main() async {
   //Из объекта получаем свойство класса username, то есть имя пользователя.
   final username = (await Telegram(botToken).getMe()).username;
 
-  //
+  //Определение порта, на котором будет запущено веб-приложение,
+  //и преобразования его значения в целое число.
   final webappPort = int.parse(Platform.environment['PORT'] ?? '8000');
 
+  //Создание Вебхука с использованием протокола HTTP
+  //Задается URL-адрес сервера, к которому будет привязан вебхук,
+  //с использованием переменной webappPort, которая содержит порт сервера.
   var webhook = await Webhook.createHttpWebhok(Telegram(botToken),
       'https://appliedmathsbotdart0.herokuapp.com/webhook/$botToken',
       serverPort: webappPort, dropPendingUpdates: true);
 
   var teleDart = TeleDart(botToken, Event(username!), fetcher: webhook);
-  teleDart.start();
+  //teleDart.start();
 
   //KeyBoardButton for main menu
   final info113 = KeyboardButton(text: 'Інфо');
