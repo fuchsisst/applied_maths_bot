@@ -1,55 +1,68 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:applied_maths_bot/command_text.dart';
-import 'package:applied_maths_bot/constants.dart';
-import 'package:applied_maths_bot/keyboards/inline_social_media_keyboard.dart';
-import 'package:applied_maths_bot/keyboards/main_menu_keyboard.dart';
+import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
+var BOT_TOKEN = '5839246590:AAGamMdzCPzjFn0xgKCl0nmk7juW8oAG4eI';
+
 Future<void> main() async {
-  //Метод getMe() возращает основную информацию о боте в виде объекта User.
-  //Из объекта получаем свойство класса username, то есть имя пользователя.
-  final username = (await Telegram(botToken).getMe()).username;
+  // init Telegram
+  final username = (await Telegram(BOT_TOKEN).getMe()).username;
+  var teledart = TeleDart(BOT_TOKEN, Event(username!));
 
-  //Определение порта, на котором будет запущено веб-приложение,
-  //и преобразования его значения в целое число.
-  final webappPort = int.parse(Platform.environment['PORT'] ?? '8000');
+  teledart.start();
 
-  //Создание Вебхука с использованием протокола HTTP
-  //Задается URL-адрес сервера, к которому будет привязан вебхук,
-  //с использованием переменной webappPort, которая содержит порт сервера.
-  var webhook = await Webhook.createHttpWebhok(Telegram(botToken),
-      'https://appliedmathsbotdart0.herokuapp.com/webhook/$botToken',
-      serverPort: webappPort, dropPendingUpdates: true);
+  //KeyBoardButton for main menu
+  final info113 = KeyboardButton(text: 'Інфо');
+  final socialMedia = KeyboardButton(text: 'Соцмережі');
+  final news = KeyboardButton(text: 'Новини');
+  final fAQ = KeyboardButton(text: 'FAQ');
 
-  var teleDart = TeleDart(botToken, Event(username!), fetcher: webhook);
-  teleDart.start();
+  List<List<KeyboardButton>> keyboardMenu = [
+    [info113],
+    [socialMedia],
+    [news],
+    [fAQ]
+  ];
 
-  teleDart.onCommand('start').listen((message) => message.reply(
-        startMessage,
-        replyMarkup: markupMenu,
-        disableNotification: true,
-      ));
+  final markupMenu =
+      ReplyKeyboardMarkup(resizeKeyboard: true, keyboard: keyboardMenu);
 
-  teleDart.onCommand('info_113').listen((message) => message.reply(
-        info_113,
-        replyMarkup: markupMenu,
-        disableNotification: true,
-      ));
+  //
+  final instagram = InlineKeyboardButton(
+      text: 'Instagram',
+      url:
+          'https://www.instagram.com/appliedmathematics_onpu/?igshid=YmMyMTA2M2Y%3D');
+  final facebook = InlineKeyboardButton(
+      text: 'Facebook', url: 'https://m.facebook.com/AppliedMathematicsONPU/');
+  final telegramChannel = InlineKeyboardButton(
+      text: 'Telegram Channel', url: 'https://t.me/applyed_math');
 
-  teleDart
+  List<List<InlineKeyboardButton>> keyboardSocialMedia = [
+    [instagram],
+    [facebook],
+    [telegramChannel]
+  ];
+
+  final markupSocialMedia =
+      InlineKeyboardMarkup(inlineKeyboard: keyboardSocialMedia);
+
+  teledart.onCommand('start').listen(
+      (message) => message.reply(startMessage, replyMarkup: markupMenu));
+  teledart
+      .onCommand('info_113')
+      .listen((message) => message.reply(info_113, replyMarkup: markupMenu));
+
+  teledart
       .onMessage(keyword: info113.text)
       .where((message) => message.text?.contains(info113.text) ?? false)
       .listen((message) => message.reply(info_113));
 
-  teleDart
+  teledart
       .onMessage(keyword: socialMedia.text)
       .where((message) => message.text?.contains(socialMedia.text) ?? false)
-      .listen((message) => message.reply(
-            'Social Media:',
-            replyMarkup: markupSocialMedia,
-            disableNotification: true,
-          ));
+      .listen((message) =>
+          message.reply('Social Media:', replyMarkup: markupSocialMedia));
 }
