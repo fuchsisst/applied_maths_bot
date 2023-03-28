@@ -4,7 +4,9 @@ import 'dart:io';
 import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/constants.dart';
 import 'package:applied_maths_bot/keyboards/inline_social_media_keyboard.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_keyboard.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_keyboard.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
@@ -26,7 +28,11 @@ Future<void> main() async {
       serverPort: webappPort, dropPendingUpdates: true);
 
   var teleDart = TeleDart(botToken, Event(username!), fetcher: webhook);
+
   teleDart.start();
+
+  mainMenuFunc(teleDart);
+  infoFunc(teleDart);
 
   teleDart.onCommand('start').listen((message) => message.reply(
         startMessage,
@@ -39,52 +45,4 @@ Future<void> main() async {
         replyMarkup: markupMenu,
         disableNotification: true,
       ));
-
-  teleDart
-      .onMessage(keyword: info.text)
-      .where((message) => message.text?.contains(info.text) ?? false)
-      .listen((message) => message.reply(
-            infoMessage,
-            replyMarkup: infoMarkup,
-          ));
-
-  teleDart
-      .onMessage(keyword: appliedMath_113.text)
-      .where((message) => message.text?.contains(appliedMath_113.text) ?? false)
-      .listen((message) => message.reply(
-            info_113,
-          ));
-
-  teleDart
-      .onMessage(keyword: systemAnalysis_124.text)
-      .where(
-          (message) => message.text?.contains(systemAnalysis_124.text) ?? false)
-      .listen((message) => message.reply(inProcess));
-
-  teleDart
-      .onMessage(keyword: back.text)
-      .where((message) => message.text?.contains(back.text) ?? false)
-      .listen((message) => message.reply(
-            'Головне меню',
-            replyMarkup: markupMenu,
-          ));
-
-  teleDart
-      .onMessage(keyword: socialMedia.text)
-      .where((message) => message.text?.contains(socialMedia.text) ?? false)
-      .listen((message) => message.reply(
-            'Social Media:',
-            replyMarkup: markupSocialMedia,
-            disableNotification: true,
-          ));
-
-  teleDart
-      .onMessage(keyword: news.text)
-      .where((message) => message.text?.contains(news.text) ?? false)
-      .listen((message) => message.reply(inProcess));
-
-  teleDart
-      .onMessage(keyword: fAQ.text)
-      .where((message) => message.text?.contains(fAQ.text) ?? false)
-      .listen((message) => message.reply(inProcess));
 }
