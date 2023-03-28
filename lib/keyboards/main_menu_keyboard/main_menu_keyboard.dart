@@ -1,13 +1,13 @@
 import 'package:teledart/model.dart';
 
 //KeyBoardButton for main menu
-final info113 = KeyboardButton(text: 'Інфо');
+final info = KeyboardButton(text: 'Інфо');
 final socialMedia = KeyboardButton(text: 'Соцмережі');
 final news = KeyboardButton(text: 'Новини');
 final fAQ = KeyboardButton(text: 'FAQ');
 
 List<List<KeyboardButton>> keyboardMenu = [
-  [info113],
+  [info],
   [socialMedia],
   [news],
   [fAQ]

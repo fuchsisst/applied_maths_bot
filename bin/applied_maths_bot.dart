@@ -4,7 +4,8 @@ import 'dart:io';
 import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/constants.dart';
 import 'package:applied_maths_bot/keyboards/inline_social_media_keyboard.dart';
-import 'package:applied_maths_bot/keyboards/main_menu_keyboard.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_keyboard.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_keyboard.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
@@ -40,9 +41,9 @@ Future<void> main() async {
       ));
 
   teleDart
-      .onMessage(keyword: info113.text)
-      .where((message) => message.text?.contains(info113.text) ?? false)
-      .listen((message) => message.reply(info_113));
+      .onMessage(keyword: info.text)
+      .where((message) => message.text?.contains(info.text) ?? false)
+      .listen((message) => message.reply(info_113, replyMarkup: infoKeyboard));
 
   teleDart
       .onMessage(keyword: socialMedia.text)
