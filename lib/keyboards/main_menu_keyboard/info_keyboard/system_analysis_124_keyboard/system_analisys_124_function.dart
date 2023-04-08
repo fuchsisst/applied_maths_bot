@@ -12,6 +12,12 @@ void systemAnalysisFunc(TeleDart teleDart) {
     aboutSystemAnalysis,
   ));
   teleDart
+      .onMessage(keyword: statistics.text)
+      .where((message) => message.text?.contains(statistics.text) ?? false)
+      .listen((message) => message.reply(
+    statisticSystemAnalysis,
+  ));
+  teleDart
       .onMessage(keyword: backInfo.text)
       .where((message) => message.text?.contains(backInfo.text) ?? false)
       .listen((message) => message.reply(
