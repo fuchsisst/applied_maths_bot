@@ -8,7 +8,6 @@ final fAQ = KeyboardButton(text: 'FAQ');
 
 List<List<KeyboardButton>> keyboardMenu = [
   [info, socialMedia],
-  [socialMedia],
   [news],
   [fAQ]
 ];
