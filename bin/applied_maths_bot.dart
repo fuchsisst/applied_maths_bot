@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/constants.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_function.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/system_analysis_124_keyboard/system_analisys_124_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_keyboard.dart';
 import 'package:teledart/teledart.dart';
@@ -31,6 +32,7 @@ Future<void> main() async {
 
   mainMenuFunc(teleDart);
   infoFunc(teleDart);
+  systemAnalysisFunc(teleDart);
 
   teleDart.onCommand('start').listen((message) => message.reply(
         startMessage,

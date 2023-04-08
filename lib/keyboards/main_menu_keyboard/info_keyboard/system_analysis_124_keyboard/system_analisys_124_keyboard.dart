@@ -5,12 +5,12 @@ final about = KeyboardButton(text: 'About');
 final statistics = KeyboardButton(text: 'Statistics');
 final admissionTips = KeyboardButton(text: 'Admission Tips');
 final faqs = KeyboardButton(text: 'FAQs');
-final back = KeyboardButton(text: 'Back');
+final backInfo = KeyboardButton(text: 'Back');
 
 List<List<KeyboardButton>> keyboardMenu = [
   [about, statistics],
   [admissionTips, faqs],
-  [back],
+  [backInfo],
 ];
 
 final systemAnalysisMarkup =
