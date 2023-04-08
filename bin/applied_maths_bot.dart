@@ -3,9 +3,7 @@ import 'dart:io';
 
 import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/constants.dart';
-import 'package:applied_maths_bot/keyboards/inline_social_media_keyboard.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_function.dart';
-import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_keyboard.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_keyboard.dart';
 import 'package:teledart/teledart.dart';
