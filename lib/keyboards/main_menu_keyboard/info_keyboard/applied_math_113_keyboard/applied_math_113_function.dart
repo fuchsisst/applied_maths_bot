@@ -1,7 +1,7 @@
+import 'package:applied_maths_bot/command_text.dart';
 import 'package:teledart/teledart.dart';
+import 'applied_math_113_keyboard.dart';
 
-import '../../../../command_text.dart';
-import '../system_analysis_124_keyboard/system_analisys_124_keyboard.dart';
 
 void appliedMathFunc(TeleDart teleDart){
   teleDart
