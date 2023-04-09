@@ -10,12 +10,4 @@ void appliedMathFunc(TeleDart teleDart){
       .listen((message) => message.reply(
     info_113,
   ));
-  teleDart
-      .onMessage(keyword: backInfo.text)
-      .where((message) => message.text?.contains(backInfo.text) ?? false)
-      .listen((message) => message.reply(
-    infoMessage,
-    replyMarkup: infoMarkup,
-  ));
-
 }
