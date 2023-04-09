@@ -5,8 +5,8 @@ import 'applied_math_113_keyboard.dart';
 
 void appliedMathFunc(TeleDart teleDart){
   teleDart
-      .onMessage(keyword: about.text)
-      .where((message) => message.text?.contains(about.text) ?? false)
+      .onMessage(keyword: about113.text)
+      .where((message) => message.text?.contains(about113.text) ?? false)
       .listen((message) => message.reply(
     info_113,
   ));
