@@ -6,8 +6,8 @@ import 'system_analisys_124_keyboard.dart';
 
 void systemAnalysisFunc(TeleDart teleDart) {
   teleDart
-      .onMessage(keyword: about.text)
-      .where((message) => message.text?.contains(about.text) ?? false)
+      .onMessage(keyword: about124.text)
+      .where((message) => message.text?.contains(about124.text) ?? false)
       .listen((message) => message.reply(
     aboutSystemAnalysis,
   ));
