@@ -43,7 +43,7 @@ Future<void> main() async {
       ));
 
   teleDart.onCommand('info_113').listen((message) => message.reply(
-        info_113,
+        aboutAppliedMath,
         replyMarkup: markupMenu,
         disableNotification: true,
       ));
