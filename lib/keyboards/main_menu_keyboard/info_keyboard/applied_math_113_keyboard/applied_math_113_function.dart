@@ -9,4 +9,10 @@ void appliedMathFunc(TeleDart teleDart){
       .listen((message) => message.reply(
     aboutAppliedMath,
   ));
+  teleDart
+      .onMessage(keyword: statistics.text)
+      .where((message) => message.text?.contains(statistics.text) ?? false)
+      .listen((message) => message.reply(
+    statisticAppliedMath,
+  ));
 }
