@@ -15,4 +15,5 @@ void appliedMathFunc(TeleDart teleDart){
       .listen((message) => message.reply(
     statisticAppliedMath,
   ));
+
 }
