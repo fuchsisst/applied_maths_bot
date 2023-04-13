@@ -20,9 +20,7 @@ void systemAnalysisFunc(TeleDart teleDart) {
   teleDart
       .onMessage(keyword: admissionTips.text)
       .where((message) => message.text?.contains(admissionTips.text) ?? false)
-      .listen((message) => message.replyPhoto(
-    '/assets/images/10_steps_vstup.jpg', caption: admissionTipsSystemAnalysis
-  ));
+      .listen((message) => message.reply(admissionTipsSystemAnalysis));
   teleDart
       .onMessage(keyword: backInfo.text)
       .where((message) => message.text?.contains(backInfo.text) ?? false)
