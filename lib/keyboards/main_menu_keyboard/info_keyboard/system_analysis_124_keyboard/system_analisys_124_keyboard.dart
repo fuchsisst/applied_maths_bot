@@ -1,9 +1,9 @@
 import 'package:teledart/model.dart';
 
 //KeyBoardButton for 124 - System Analysis
-final about124 = KeyboardButton(text: 'About 124');
-final statistics = KeyboardButton(text: 'Statistics 124');
-final admissionTips = KeyboardButton(text: 'Admission Tips 124');
+final about124 = KeyboardButton(text: 'Про спеціальність 124');
+final statistics = KeyboardButton(text: 'Статистика ринку для 124');
+final admissionTips = KeyboardButton(text: 'Вступ 2023 для 124');
 final faqs = KeyboardButton(text: 'FAQs 124');
 final backInfo = KeyboardButton(text: 'Back');
 

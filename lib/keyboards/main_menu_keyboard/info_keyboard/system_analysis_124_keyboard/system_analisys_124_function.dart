@@ -20,7 +20,7 @@ void systemAnalysisFunc(TeleDart teleDart) {
   teleDart
       .onMessage(keyword: admissionTips.text)
       .where((message) => message.text?.contains(admissionTips.text) ?? false)
-      .listen((message) => message.replyPhoto('https://mon.gov.ua/storage/app/uploads/public/642/536/34e/64253634e8e87484387527.jpg', caption: admissionTipsSystemAnalysis));
+      .listen((message) => message.replyPhoto(admissionMONUkraine2023, caption: admissionTipsSystemAnalysis));
   teleDart
       .onMessage(keyword: backInfo.text)
       .where((message) => message.text?.contains(backInfo.text) ?? false)
