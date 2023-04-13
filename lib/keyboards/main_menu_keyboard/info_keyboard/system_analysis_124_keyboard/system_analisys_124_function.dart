@@ -2,7 +2,7 @@ import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_keyboard.dart';
 import 'package:teledart/teledart.dart';
 
-import 'inline_system_analisys_124_keyboard.dart';
+import 'inline_vstup_system_analisys_124_keyboard.dart';
 import 'system_analisys_124_keyboard.dart';
 
 void systemAnalysisFunc(TeleDart teleDart) {
