@@ -1,9 +1,9 @@
 import 'package:teledart/model.dart';
 
 //KeyBoardButton for 113 - Applied Math
-final about113 = KeyboardButton(text: 'About 113');
-final statistics = KeyboardButton(text: 'Statistics 113');
-final admissionTips = KeyboardButton(text: 'Admission Tips 113');
+final about113 = KeyboardButton(text: 'Про спеціальність 113');
+final statistics = KeyboardButton(text: 'Статистика ринку для 113');
+final admissionTips = KeyboardButton(text: 'Вступ 2023 для 113');
 final faqs = KeyboardButton(text: 'FAQs 113');
 final backInfo = KeyboardButton(text: 'Back');
 
