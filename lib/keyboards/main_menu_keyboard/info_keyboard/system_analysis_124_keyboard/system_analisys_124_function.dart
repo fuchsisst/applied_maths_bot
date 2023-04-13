@@ -2,6 +2,7 @@ import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_keyboard.dart';
 import 'package:teledart/teledart.dart';
 
+import 'inline_system_analisys_124_keyboard.dart';
 import 'system_analisys_124_keyboard.dart';
 
 void systemAnalysisFunc(TeleDart teleDart) {
@@ -20,7 +21,7 @@ void systemAnalysisFunc(TeleDart teleDart) {
   teleDart
       .onMessage(keyword: admissionTips.text)
       .where((message) => message.text?.contains(admissionTips.text) ?? false)
-      .listen((message) => message.replyPhoto(admissionMONUkraine2023, caption: admissionTipsSystemAnalysis));
+      .listen((message) => message.replyPhoto(admissionMONUkraine2023, caption: admissionTipsSystemAnalysis, replyMarkup: markupVstup));
   teleDart
       .onMessage(keyword: backInfo.text)
       .where((message) => message.text?.contains(backInfo.text) ?? false)
