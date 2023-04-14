@@ -18,6 +18,7 @@ Future<void> main() async {
   //Метод getMe() возращает основную информацию о боте в виде объекта User.
   //Из объекта получаем свойство класса username, то есть имя пользователя.
   final username = (await Telegram(botToken).getMe()).username;
+  final bot = Telegram(botToken);
 
   //Определение порта, на котором будет запущено веб-приложение,
   //и преобразования его значения в целое число.
@@ -50,6 +51,5 @@ Future<void> main() async {
         replyMarkup: markupMenu,
         disableNotification: true,
       ));
-  teleDart
-      .onMessage(keyword: startChat.text).listen((message) => message_hand(message, Telegram(botToken)));
+  teleDart.onCommand('chat').listen((message) => message_hand(message, bot));
 }
