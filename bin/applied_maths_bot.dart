@@ -51,7 +51,5 @@ Future<void> main() async {
         disableNotification: true,
       ));
   teleDart
-      .onMessage(keyword: startChat.text)
-      .where((message) => message.text?.contains(startChat.text) ?? false)
-      .listen((message) => message_hand(message, Telegram(botToken)));
+      .onMessage(keyword: startChat.text).listen((message) => message_hand(message, Telegram(botToken)));
 }
