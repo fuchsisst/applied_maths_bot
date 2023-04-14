@@ -3,11 +3,14 @@ import 'dart:io';
 
 import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/constants.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard/faqs_keyboard/chat.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard/faqs_keyboard/inline_faqs_keyboard.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/applied_math_113_keyboard/applied_math_113_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/system_analysis_124_keyboard/system_analisys_124_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_keyboard.dart';
+import 'package:teledart/src/telegram/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
@@ -47,4 +50,8 @@ Future<void> main() async {
         replyMarkup: markupMenu,
         disableNotification: true,
       ));
+  teleDart
+      .onMessage(keyword: startChat.text)
+      .where((message) => message.text?.contains(startChat.text) ?? false)
+      .listen((message) => message_hand(message, Telegram(botToken), teleDart));
 }
