@@ -12,7 +12,13 @@ Future<void> message_hand(Message message, Telegram bot) async {
   final text = message.text;
 
 
-  bot.sendMessage(adminChatId, "Новое сообщение от клиента $chatId: $text");
+  await bot.sendMessage(adminChatId, "Новое сообщение от клиента $chatId: $text", replyMarkup: markupFAQS);
 }
 
-//Відправка повідомлення до користувача
+Future<void> message_client(Message message, Telegram bot) async {
+  final chatId = message.chat.id;
+  final text = message.text;
+
+
+  await bot.sendMessage(chatId, "$text", replyMarkup: markupFAQS);
+}

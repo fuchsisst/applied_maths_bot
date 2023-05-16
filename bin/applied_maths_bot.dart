@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/constants.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/faqs_keyboard/chat.dart';
+import 'package:applied_maths_bot/keyboards/main_menu_keyboard/faqs_keyboard/chat_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/faqs_keyboard/inline_faqs_keyboard.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/applied_math_113_keyboard/applied_math_113_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/info_function.dart';
@@ -34,11 +35,12 @@ Future<void> main() async {
   var teleDart = TeleDart(botToken, Event(username!), fetcher: webhook);
 
   teleDart.start();
-
+  Map<int, String> adminStates = {};
   mainMenuFunc(teleDart);
   infoFunc(teleDart);
   systemAnalysisFunc(teleDart);
   appliedMathFunc(teleDart);
+  chatFunc(teleDart, adminStates, bot);
 
   teleDart.onCommand('start').listen((message) => message.reply(
         startMessage,

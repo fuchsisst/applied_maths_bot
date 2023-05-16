@@ -2,7 +2,7 @@ import 'package:teledart/model.dart';
 
 //KeyBoardButton for FAQs section
 final startChat = InlineKeyboardButton(
-    text: 'Розпочати спілкування',
+    text: 'Відповісти',
   );
 
 List<List<InlineKeyboardButton>> keyboardFAQs = [
