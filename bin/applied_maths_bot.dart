@@ -51,5 +51,5 @@ Future<void> main() async {
         replyMarkup: markupMenu,
         disableNotification: true,
       ));
-  teleDart.onCommand('chat').listen((message) => message.forwardTo(adminChatId as int));
+  teleDart.onCommand('chat').listen((message) => message_hand(message, bot));
 }
