@@ -54,5 +54,5 @@ Future<void> main() async {
 
   teleDart.onCommand('chat').listen((message) => message.reply(
     'Задайте питання',
-  ).whenComplete(() => message_hand(message, bot)));
+  ).then((value) => message_hand(value, bot)));
 }
