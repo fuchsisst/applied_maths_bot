@@ -52,12 +52,14 @@ Future<void> main() async {
         disableNotification: true,
       ));
 
-  teleDart.onCommand('chat').listen((message){
+  teleDart.onCommand('chat').listen((message) async {
     final chatId = message.chat.id;
     final text = message.text;
 
-    message.reply('Ваше сообщение получено. Спасибо!');
+    message.reply('Задайте вопрос:');
     // Вызов функции для отправки сообщения админу
-    message_hand(message, bot);
+    await message_hand(message, bot);
+
+    message.reply('Ответ получен');
   });
 }

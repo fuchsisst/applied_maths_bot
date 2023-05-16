@@ -7,12 +7,12 @@ import 'package:teledart/telegram.dart';
 import '../../../constants.dart';
 import 'inline_faqs_keyboard.dart';
 
-void message_hand(Message message, Telegram bot){
+Future<void> message_hand(Message message, Telegram bot) async {
   final chatId = message.chat.id;
   final text = message.text;
 
 
-  bot.sendMessage(adminChatId, "New message from client $chatId: ${message.messageId +1}");
+  bot.sendMessage(adminChatId, "New message from client $chatId: $text");
 }
 
 //Відправка повідомлення до користувача
