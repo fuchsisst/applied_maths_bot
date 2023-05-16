@@ -12,7 +12,7 @@ void message_hand(Message message, Telegram bot){
   final text = message.text;
 
 
-  bot.sendMessage(adminChatId, "New message from client $chatId: $text");
+  bot.sendMessage(adminChatId, "New message from client $chatId: ${message.messageId +1}");
 }
 
 //Відправка повідомлення до користувача
