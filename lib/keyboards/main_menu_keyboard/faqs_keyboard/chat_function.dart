@@ -2,7 +2,7 @@ import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
 import 'chat.dart';
-import 'inline_faqs_keyboard.dart';
+import 'chat_keyboard.dart';
 
 void chatFunc(TeleDart teleDart, Map<int, String> adminStates, Telegram bot) {
   teleDart

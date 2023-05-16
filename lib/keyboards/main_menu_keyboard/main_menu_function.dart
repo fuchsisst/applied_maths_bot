@@ -2,7 +2,6 @@ import 'package:applied_maths_bot/command_text.dart';
 import 'package:applied_maths_bot/keyboards/inline_social_media_keyboard.dart';
 import 'package:teledart/teledart.dart';
 
-import 'faqs_keyboard/inline_faqs_keyboard.dart';
 import 'info_keyboard/info_keyboard.dart';
 import 'main_menu_keyboard.dart';
 
@@ -27,7 +26,7 @@ void mainMenuFunc(TeleDart teleDart) {
       .where((message) => message.text?.contains(news.text) ?? false)
       .listen((message) => message.reply(inProcess));
   teleDart
-      .onMessage(keyword: fAQ.text)
-      .where((message) => message.text?.contains(fAQ.text) ?? false)
-      .listen((message) => message.reply(faqs, replyMarkup: markupFAQS));
+      .onMessage(keyword: chat_.text)
+      .where((message) => message.text?.contains(chat_.text) ?? false)
+      .listen((message) => message.reply(chat));
 }

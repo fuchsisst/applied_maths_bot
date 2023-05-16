@@ -5,7 +5,7 @@ import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
 import '../../../constants.dart';
-import 'inline_faqs_keyboard.dart';
+import 'chat_keyboard.dart';
 
 Future<void> message_hand(Message message, Telegram bot) async {
   final chatId = message.chat.id;
