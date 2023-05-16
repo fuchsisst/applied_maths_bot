@@ -12,7 +12,7 @@ Future<void> message_hand(Message message, Telegram bot) async {
   final text = message.text;
 
 
-  bot.sendMessage(adminChatId, "New message from client $chatId: $text");
+  bot.sendMessage(adminChatId, "Новое сообщение от клиента $chatId: $text");
 }
 
 //Відправка повідомлення до користувача

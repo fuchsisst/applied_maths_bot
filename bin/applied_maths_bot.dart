@@ -52,14 +52,31 @@ Future<void> main() async {
         disableNotification: true,
       ));
 
+  //Карта для отслеживания состояний пользователей
+  Map<int, String> userStates = {};
+
   teleDart.onCommand('chat').listen((message) async {
+    final chatId = message.chat.id;
+
+    await message.reply('Задайте вопрос:');
+
+    // Устанавливаем состояние "ожидание сообщения" для данного пользователя
+    userStates[chatId] = 'waiting_for_message';
+  });
+
+  teleDart.onMessage().listen((message) {
     final chatId = message.chat.id;
     final text = message.text;
 
-    message.reply('Задайте вопрос:');
-    // Вызов функции для отправки сообщения админу
-    await message_hand(message, bot);
+    // Проверяем состояние пользователя
+    if (userStates.containsKey(chatId) && userStates[chatId] == 'waiting_for_message') {
+      // Отправляем сообщение админу
+      message_hand(message, bot);
 
-    message.reply('Ответ получен');
+      // Сбрасываем состояние пользователя
+      userStates.remove(chatId);
+
+      message.reply('Сообщение отправлено админу. Спасибо!');
+    }
   });
 }
