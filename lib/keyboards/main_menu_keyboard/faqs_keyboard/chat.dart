@@ -1,38 +1,42 @@
-
-//Отримання повідомлення від користувача
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
 import '../../../constants.dart';
 import 'keyboard.dart';
-
+int? chatUserId;
 void chattingFunc(TeleDart teleDart, Telegram bot) {
-  // Состояния для пользователя и администратора
+  // Состояния для пользователя и администратора.
+  // Состояние 'waiting_for_message' устанавливаем для пользователя, когда
+  // он отправил сообщение и ожидает ответа администратора
+  // Состояние 'chatting' устанавливается для обоих сторон в случае принятия
+  // переписки админом.
   Map<int, String> userStates = {};
   Map<int, String> adminStates = {};
 
+
+  int? chatAdminId;
+
   // Вызываем команду /chat со стороны пользователя
   teleDart.onCommand('chat').listen((message) async {
-    final chatId = message.chat.id;
-
+    chatUserId = message.chat.id;
+    print(chatUserId);
     await message.reply('Задайте вопрос:');
 
     // Устанавливаем состояние "ожидание сообщения" для данного пользователя
-    userStates[chatId] = 'waiting_for_message';
+    userStates[chatUserId!] = 'waiting_for_message';
   });
 
   // Слушаем "вопрос"-сообщение пользователя для отправки администратору
   teleDart.onMessage().listen((message) {
-    final chatId = message.chat.id;
 
     // Проверяем состояние пользователя
-    if (userStates.containsKey(chatId) && userStates[chatId] == 'waiting_for_message') {
+    if (userStates.containsKey(chatUserId) && userStates[chatUserId] == 'waiting_for_message') {
       // Отправляем сообщение админу
       messageToAdmin(userStates, adminStates, teleDart, message, bot);
 
-      // Сбрасываем состояние пользователя
-      userStates.remove(chatId);
+      // // Сбрасываем состояние пользователя
+      // userStates.remove(chatUserId);
 
       message.reply('Сообщение отправлено админу. Спасибо!');
     }
@@ -49,7 +53,7 @@ Future<void> messageToAdmin ( Map<int, String> userStates, Map<int, String> admi
     await bot.sendMessage(adminChatId, "Cообщение от клиента $chatUser: $text");
     teleDart.onMessage().listen((message) async {
       final chatId = message.chat.id;
-
+      print(chatId);
       if (userStates.containsKey(chatId) && userStates[chatId] == 'chatting') {
         // Отправляем сообщение админу
         messageToAdmin(userStates, adminStates, teleDart, message, bot);
@@ -57,7 +61,7 @@ Future<void> messageToAdmin ( Map<int, String> userStates, Map<int, String> admi
       }
     });
   }
-  await bot.sendMessage(adminChatId, "Новое сообщение от клиента $chatUser: $text", replyMarkup: markupChat);
+  await bot.sendMessage(adminChatId, "Новое сообщение от клиента $chatUser: $text");
 
   teleDart.onMessage(keyword: 'Відповісти').listen((message) async {
     final chatId = message.chat.id;
@@ -65,6 +69,9 @@ Future<void> messageToAdmin ( Map<int, String> userStates, Map<int, String> admi
 
     // Устанавливаем состояние "chatting" для данного пользователя
     adminStates[chatId] = 'chatting';
+    print(chatId);
+    userStates[chatId] = 'chatting';
+    await bot.sendMessage(chatUserId, "Администратор на месте, ожидайте");
     messageToClient(adminStates, teleDart, message, bot, userStates);
 
   });
@@ -72,20 +79,13 @@ Future<void> messageToAdmin ( Map<int, String> userStates, Map<int, String> admi
 }
 
 Future<void> messageToClient(Map<int, String> adminStates, TeleDart teleDart, Message message, Telegram bot, Map<int, String> userStates) async {
-
   teleDart.onMessage().listen((message) async {
     final chatId = message.chat.id;
-    await message.reply('Администратор на месте, ожидайте');
-
-    // Устанавливаем состояние "chatting" для данного пользователя
-    userStates[chatId] = 'chatting';
 
     if (userStates.containsKey(chatId) && userStates[chatId] == 'chatting') {
       // Отправляем сообщение админу
       messageToAdmin(userStates, adminStates, teleDart, message, bot);
-
     }
-
   });
 
   teleDart.onMessage(keyword: 'Off').listen((message) async {
