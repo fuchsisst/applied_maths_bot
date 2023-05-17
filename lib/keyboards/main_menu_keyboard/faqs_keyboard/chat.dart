@@ -47,6 +47,13 @@ Future<void> messageToAdmin(
     await bot.sendMessage(adminChatId, "Новое сообщение от клиента $chatUser: $text");
   }
 
+  teleDart.onMessage(keyword: 'Ответ').listen((message) async {
+    final chatId = message.chat.id;
+    if (userStates.containsKey(chatId) && userStates[chatId] == 'chatting') {
+      messageToClient(adminStates, teleDart, message, bot, userStates);
+    }
+  });
+
   var subscription = teleDart.onMessage().listen((message) async {
     final chatId = message.chat.id;
     if (userStates.containsKey(chatId) && userStates[chatId] == 'chatting') {
