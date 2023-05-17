@@ -64,12 +64,10 @@ Future<void> messageToClient(
     Message message,
     Telegram bot,
     Map<int, String> userStates) async {
-  teleDart.onMessage().listen((message) async {
-    final chatId = message.chat.id;
-    if (userStates.containsKey(chatId) && userStates[chatId] == 'chatting') {
-      messageToAdmin(userStates, adminStates, teleDart, message, bot);
-    }
-  });
+  final chatId = message.chat.id;
+  if (userStates.containsKey(chatId) && userStates[chatId] == 'chatting') {
+    messageToAdmin(userStates, adminStates, teleDart, message, bot);
+  }
 
   teleDart.onMessage(keyword: 'Off').listen((message) async {
     final chatId = message.chat.id;
