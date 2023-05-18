@@ -8,9 +8,11 @@ import 'keyboard.dart';
 int? chatUserId;
 
 void chattingFunc(TeleDart teleDart, Telegram bot) {
+  // Состояния пользователей и администраторов
   Map<int, String> userStates = {};
   Map<int, String> adminStates = {};
 
+  // Ставим "слушать" команду /chat
   teleDart.onCommand('chat').listen((message) async {
     chatUserId = message.chat.id;
     print(chatUserId);
@@ -19,6 +21,7 @@ void chattingFunc(TeleDart teleDart, Telegram bot) {
     userStates[chatUserId!] = 'waiting_for_message';
   });
 
+  // Снова слушаем сообщения
   teleDart.onMessage().listen((message) {
     final chatId = message.chat.id;
 
@@ -48,6 +51,9 @@ Future<void> messageToAdmin(
   }
 
   teleDart.onMessage(keyword: 'Ответ').listen((message) async {
+    adminStates[chatUserId!] = 'chatting';
+    userStates[chatUserId!] = 'chatting';
+
     final chatId = message.chat.id;
     if (userStates.containsKey(chatId) && userStates[chatId] == 'chatting') {
       messageToClient(adminStates, teleDart, message, bot, userStates);
