@@ -15,7 +15,6 @@ void chattingFunc(TeleDart teleDart, Telegram bot) {
   // Ставим "слушать" команду /chat
   teleDart.onCommand('chat').listen((message) async {
     chatUserId = message.chat.id;
-    print(chatUserId);
     await message.reply('Задайте вопрос:');
 
     userStates[chatUserId!] = 'waiting_for_message';
