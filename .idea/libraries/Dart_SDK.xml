@@ -1,27 +1,25 @@
 <component name="libraryTable">
   <library name="Dart SDK">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/async" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/cli" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/collection" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/convert" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/core" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/developer" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/ffi" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/html" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/indexed_db" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/io" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/isolate" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/js" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/js_interop" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/js_interop_unsafe" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/js_util" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/math" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/mirrors" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/svg" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/typed_data" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/web_audio" />
-      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk/lib/web_gl" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/async" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/cli" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/collection" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/convert" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/core" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/developer" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/ffi" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/html" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/indexed_db" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/io" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/isolate" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/js" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/js_util" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/math" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/mirrors" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/svg" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/typed_data" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/web_audio" />
+      <root url="file://$PROJECT_DIR$/../../../sdks_Flutter_Dart/old-dart-sdks/dart-sdk-2.19.2/lib/web_gl" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

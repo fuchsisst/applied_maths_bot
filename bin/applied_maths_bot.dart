@@ -25,7 +25,7 @@ Future<void> main() async {
   //Задается URL-адрес сервера, к которому будет привязан вебхук,
   //с использованием переменной webappPort, которая содержит порт сервера.
   var webhook = await Webhook.createHttpWebhok(Telegram(botToken),
-      'https://appliedmathsbotdart0.herokuapp.com/webhook/$botToken',
+      'https://applied-math-bot.herokuapp.com/webhook/$botToken',
       serverPort: webappPort, dropPendingUpdates: true);
 
   var teleDart = TeleDart(botToken, Event(username!), fetcher: webhook);
