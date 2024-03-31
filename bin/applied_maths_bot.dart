@@ -9,7 +9,6 @@ import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/inf
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/info_keyboard/system_analysis_124_keyboard/system_analisys_124_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_function.dart';
 import 'package:applied_maths_bot/keyboards/main_menu_keyboard/main_menu_keyboard.dart';
-import 'package:teledart/src/telegram/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
