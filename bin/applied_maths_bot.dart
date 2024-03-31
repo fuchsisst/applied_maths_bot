@@ -19,7 +19,7 @@ Future<void> main() async {
 
   //Определение порта, на котором будет запущено веб-приложение,
   //и преобразования его значения в целое число.
-  final webappPort = int.parse(Platform.environment['PORT'] ?? '8000');
+  final webappPort = int.parse(Platform.environment['PORT'] ?? '5000');
 
   //Создание Вебхука с использованием протокола HTTP
   //Задается URL-адрес сервера, к которому будет привязан вебхук,
