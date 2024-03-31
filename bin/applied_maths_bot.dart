@@ -38,7 +38,7 @@ Future<void> main() async {
   infoFunc(teleDart);
   systemAnalysisFunc(teleDart);
   appliedMathFunc(teleDart);
-  chattingFunc(teleDart, bot);
+  // chattingFunc(teleDart, bot);
 
   teleDart.onCommand('start').listen((message) => message.reply(
         startMessage,
